@@ -2,10 +2,12 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { BookOpen, Moon, Menu, X } from 'lucide-react';
+import { BookOpen, Moon, Menu, X, Sun } from 'lucide-react';
+import { useTheme } from 'next-themes';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const { theme, setTheme } = useTheme();
 
     return (
         <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
@@ -21,21 +23,27 @@ export default function Navbar() {
                         </span>
                     </Link>
 
-                    {/* Desktop Navigation (Matches Screenshot) */}
-                    <div className="hidden items-center gap-10 md:flex">
-                        <div className="flex items-center gap-8">
-                            <Link href="/" className="text-sm font-medium text-teal-accent transition-all">
-                                Home
-                            </Link>
-                            <Link href="/tutors" className="text-sm font-medium text-black/60 transition-all hover:text-teal-accent">
-                                Tutors
-                            </Link>
-                        </div>
+                    <div className="flex items-center gap-8">
+                        <Link href="/" className="text-sm font-medium text-teal-accent transition-all">
+                            Home
+                        </Link>
+                        <Link href="/tutors" className="text-sm font-medium text-black/60 transition-all hover:text-teal-accent">
+                            Tutors
+                        </Link>
+                    </div>
 
-                        {/* Right Actions Divider and Buttons */}
+
+                    <div className="hidden items-center gap-10 md:flex">
+
+
+
                         <div className="flex items-center gap-5 border-l border-black/5 pl-8">
-                            <button className="rounded-full p-2 text-black/60 transition-colors hover:bg-black/5 hover:text-black" aria-label="Toggle theme">
-                                <Moon size={18} />
+                            <button
+                                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                                className="rounded-full p-2 text-black/60 transition-colors hover:bg-black/5 hover:text-black"
+                                aria-label="Toggle theme"
+                            >
+                                {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
                             </button>
 
                             <Link href="/login" className="rounded-xl bg-black px-6 py-2.5 text-xs font-bold text-white shadow-xl shadow-black/10 transition-all hover:bg-teal-accent hover:scale-105 active:scale-95">

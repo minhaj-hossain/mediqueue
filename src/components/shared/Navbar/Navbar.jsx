@@ -20,11 +20,15 @@ export default function Navbar() {
     const navLinks = [
         { name: "Home", href: "/" },
         { name: "Tutors", href: "/tutors" },
+        // { name: "Add Tutor", href: "/add-tutor" },
+        // { name: "My Tutors", href: "/my-tutors" },
     ];
 
     const authenticatedLinks = [
         { name: "Add Tutor", href: "/add-tutor" },
-        { name: "My Tutors", href: "/my-tutors" },]
+        { name: "My Tutors", href: "/my-tutors" },
+        { name: "My Booked Sessions", href: "/my-booked-sessions" }
+    ]
 
 
     const handleLogout = async () => {
@@ -84,14 +88,14 @@ export default function Navbar() {
                             ) : session?.user ? (
 
                                 <div className='flex gap-3 items-center'>
-                                    <span className="text-xs font-bold text-black">{session.user.name.split(" ")[0]}</span>
-                                   
+                                    <span className="text-xs font-bold text-black">{session?.user?.name.split(" ")[0]}</span>
+
 
                                     <div className="group relative h-8 w-8">
                                         <button className="flex items-center gap-2 rounded-full bg-black/5 p-1 pr-3 transition-colors hover:bg-black/10">
                                             <Image
-                                                src={session.user.image}
-                                                alt={session.user.name}
+                                                src={session?.user?.image}
+                                                alt={session?.user?.name}
                                                 fill
                                                 className="h-7 w-7 rounded-full border border-white object-cover"
                                             />
@@ -99,8 +103,8 @@ export default function Navbar() {
                                         </button>
                                         <div className="invisible absolute right-0 top-full mt-3 w-52 origin-top-right scale-95 rounded-2xl border bg-white p-2 opacity-0 premium-shadow transition-all group-hover:visible group-hover:scale-100 group-hover:opacity-100">
                                             <div className="px-3 py-3">
-                                                <p className="text-sm font-black text-black">{session.user.name}</p>
-                                                <p className="truncate text-[10px] uppercase tracking-wider font-bold text-black/40 mt-0.5">{session.user.email}</p>
+                                                <p className="text-sm font-black text-black">{session?.user?.name}</p>
+                                                <p className="truncate text-[10px] uppercase tracking-wider font-bold text-black/40 mt-0.5">{session?.user?.email}</p>
                                             </div>
                                             <div className="h-px bg-black/5 my-1 mx-2" />
                                             <Link href="/my-booked-sessions" className="flex items-center gap-2 rounded-xl px-3 py-2.5 text-sm font-medium text-black/70 hover:bg-teal-accent/10 hover:text-teal-accent transition-colors">

@@ -3,7 +3,7 @@ import React from 'react';
 const AddTutorPage = () => {
     return (
         <div>
-            this is add tutor pate
+            this is add-tutor page
         </div>
     );
 };

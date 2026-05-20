@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import { GraduationCap, ImageIcon, MapPin, PlusCircle, Loader2, CheckCircle2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import DatePicker from 'react-datepicker';
@@ -28,14 +28,17 @@ const INITIAL_FORM = {
 };
 
 const AddTutorsPage = () => {
+
+
+
     const [form, setForm] = useState(INITIAL_FORM);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState('');
 
     const { data: session } = authClient.useSession();
-        const user = session?.user;
-    
+    const user = session?.user;
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setForm(prev => ({ ...prev, [name]: value }));
@@ -53,6 +56,9 @@ const AddTutorsPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
+
+        const { data: tokenData } = await authClient.token()
+        console.log('Token data:', tokenData);
 
         // Basic validation
         if (!form.tutorName.trim()) return setError('Tutor name is required.');
@@ -87,6 +93,7 @@ const AddTutorsPage = () => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    authorization: `Bearer ${tokenData?.token }`,
                 },
                 body: JSON.stringify({
                     ...form,
@@ -96,7 +103,7 @@ const AddTutorsPage = () => {
                     sessionStartDate: form.sessionStartDate?.toISOString(),
                 }),
             });
-            
+
             if (!res.ok) {
                 const errData = await res.json().catch(() => ({}));
                 throw new Error(errData?.message || `Server error: ${res.status}`);

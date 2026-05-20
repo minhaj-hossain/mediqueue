@@ -8,8 +8,17 @@ import React from 'react';
 
 const MyTutorPage = async () => {
 
+
+    const { token } = await auth.api.getToken({
+        headers: await headers()
+    })
+    
     const session = await auth.api.getSession({ headers: await headers() });
-    const res = await fetch(`http://localhost:8000/my-tutors/${session.user.id}`);
+    const res = await fetch(`http://localhost:8000/my-tutors/${session.user.id}`, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
     const tutors = await res.json();
 
     return (

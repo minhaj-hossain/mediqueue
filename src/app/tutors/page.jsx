@@ -23,6 +23,7 @@ export default function TutorsPage() {
         setIsLoading(true);
 
         const timeout = setTimeout(() => {
+
             fetch(`http://localhost:8000/tutors?${params.toString()}`)
                 .then((res) => res.json())
                 .then((data) => setTutors(data))
@@ -30,7 +31,7 @@ export default function TutorsPage() {
                 .finally(() => setIsLoading(false));
         }, 300);
 
-      
+
         return () => clearTimeout(timeout);
 
     }, [search, startDate, endDate]);

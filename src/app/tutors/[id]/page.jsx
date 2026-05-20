@@ -7,37 +7,103 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import { useParams } from 'next/navigation';
 
 const SERVER_URL = 'http://localhost:8000';
 
 // ─── MAIN PAGE ─────────────────────────────────────────────────────────────────
-export default function TutorDetailsPage({ params }) {
-    const { id } = use(params);
+export default function TutorDetailsPage() {
+
+
+    const params = useParams();
+    const id = params.id;
+
     const { data: session } = authClient.useSession();
     const user = session?.user;
+
 
     const [tutor, setTutor] = useState(null);
     const [loading, setLoading] = useState(true);
     const [modalOpen, setModalOpen] = useState(false);
 
     // Fetch tutor by id
-    fetch(`${SERVER_URL}/tutors/${id}`)
-        .then(res => res.json())
-        .then(data => {
-            let availableDays = [];
+    // fetch(`${SERVER_URL}/tutors/${id}`)
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         let availableDays = [];
+    //         try {
+    //             const parsed = JSON.parse(data.availableDays);
+    //             availableDays = Array.isArray(parsed) ? parsed : [];
+    //         } catch {
+    //             // plain string like "Sun - Thu" → split it into an array
+    //             availableDays = typeof data.availableDays === 'string'
+    //                 ? data.availableDays.split(/[\s,\-]+/).map(d => d.trim()).filter(Boolean)
+    //                 : [];
+    //         }
+    //         setTutor({ ...data, availableDays });
+    //     })
+    //     .catch(console.error)
+    //     .finally(() => setLoading(false));
+    useEffect(() => {
+
+        const fetchTutor = async () => {
+
+            const { data: tokenData } = await authClient.token()
+            console.log('Token data:', tokenData);
+
             try {
-                const parsed = JSON.parse(data.availableDays);
-                availableDays = Array.isArray(parsed) ? parsed : [];
-            } catch {
-                // plain string like "Sun - Thu" → split it into an array
-                availableDays = typeof data.availableDays === 'string'
-                    ? data.availableDays.split(/[\s,\-]+/).map(d => d.trim()).filter(Boolean)
-                    : [];
+
+                setLoading(true);
+
+                const res = await fetch(`${SERVER_URL}/tutors/${id}`, {
+                    headers: {
+                        Authorization: `Bearer ${tokenData?.token}`
+                    }
+                });
+
+                const data = await res.json();
+
+                let availableDays = [];
+
+                try {
+
+                    const parsed = JSON.parse(data.availableDays);
+
+                    availableDays = Array.isArray(parsed)
+                        ? parsed
+                        : [];
+
+                } catch {
+
+                    availableDays =
+                        typeof data.availableDays === 'string'
+                            ? data.availableDays
+                                .split(/[\s,\-]+/)
+                                .map(d => d.trim())
+                                .filter(Boolean)
+                            : [];
+                }
+
+                setTutor({
+                    ...data,
+                    availableDays
+                });
+
+            } catch (err) {
+
+                console.error(err);
+
+            } finally {
+
+                setLoading(false);
             }
-            setTutor({ ...data, availableDays });
-        })
-        .catch(console.error)
-        .finally(() => setLoading(false));
+        };
+
+        if (id) {
+            fetchTutor();
+        }
+
+    }, [id]);
 
     // ── Slot / date restriction checks ───────────────────────────────────────
     const now = new Date();
@@ -187,6 +253,10 @@ function BookingModal({ tutor, user, onClose, onSuccess }) {
     const [done, setDone] = useState(false);
 
     const handleBook = async () => {
+
+        const { data: tokenData } = await authClient.token()
+        console.log('Token data:', tokenData);
+
         setError('');
         if (!phone.trim()) return setError('Phone number is required.');
 
@@ -207,7 +277,10 @@ function BookingModal({ tutor, user, onClose, onSuccess }) {
             // 1. Create booking
             const bookRes = await fetch(`${SERVER_URL}/bookings`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${tokenData?.token}`
+                },
                 body: JSON.stringify(booking),
             });
             if (!bookRes.ok) throw new Error('Failed to create booking.');
@@ -215,6 +288,9 @@ function BookingModal({ tutor, user, onClose, onSuccess }) {
             // 2. Decrease totalSlot by 1
             const slotRes = await fetch(`${SERVER_URL}/tutors/${tutor._id}/decrease-slot`, {
                 method: 'PATCH',
+                headers: {
+                    Authorization: `Bearer ${tokenData?.token}`
+                },
             });
             if (!slotRes.ok) throw new Error('Failed to update slot count.');
 

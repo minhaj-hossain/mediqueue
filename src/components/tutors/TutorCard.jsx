@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 
 export default function TutorCard({ tutor   }) {
@@ -100,13 +101,12 @@ export default function TutorCard({ tutor   }) {
                     <span className="text-2xl font-black text-black">৳{tutor.hourlyFee}</span>
                     <span className="text-sm text-black/40 font-medium">/hr</span>
                 </div>
-                <button
+                <Link href={`/tutors/${tutor._id}`}
                     disabled={tutor.totalSlot === 0}
-                    onClick={() => navigate(`/tutors/${tutor._id}`)}
                     className="rounded-2xl bg-indigo-600 hover:bg-indigo-700 active:scale-95 transition-all text-white text-sm font-bold px-5 py-2.5 disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                     {tutor.totalSlot === 0 ? "Fully Booked" : "Book Session"}
-                </button>
+                </Link>
             </div>
         </div>
     );

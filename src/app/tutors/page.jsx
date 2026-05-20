@@ -20,21 +20,19 @@ export default function TutorsPage() {
         if (startDate) params.set("startDate", startDate);
         if (endDate) params.set("endDate", endDate);
 
-        
+        setIsLoading(true);
+
         const timeout = setTimeout(() => {
             fetch(`http://localhost:8000/tutors?${params.toString()}`)
                 .then((res) => res.json())
-                .then((data) => {
-                    setTutors(data);
-                    setIsLoading(false);
-                });
+                .then((data) => setTutors(data))
+                .catch((err) => console.error(err))
+                .finally(() => setIsLoading(false));
         }, 300);
 
+      
+        return () => clearTimeout(timeout);
 
-        fetch(`http://localhost:8000/tutors?${params.toString()}`)
-            .then((res) => res.json())
-            .then((data) => setTutors(data))
-            .finally(() => setIsLoading(false));
     }, [search, startDate, endDate]);
 
 

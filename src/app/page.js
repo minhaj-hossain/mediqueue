@@ -1,8 +1,14 @@
+import FeaturedTutors from "@/components/home/FeaturedTutors";
 
-export default function Home() {
+export default async function Home() {
+
+  const res = await fetch(`http://localhost:8000/top-tutors`);
+
+  const tutors = await res.json();
+
   return (
-  <div className="pt-44">
-    this is homepage
-  </div>
+    <div className="pt-44 container mx-auto ">
+      <FeaturedTutors tutors={tutors} />
+    </div>
   );
 }

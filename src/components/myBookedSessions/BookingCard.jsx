@@ -1,17 +1,19 @@
 import { ArrowRight, BookOpen, Calendar, CheckCircle, Phone, XCircle } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
-// import { motion as Motion } from 'framer-motion';
 
-const BookingCard = ({ booking, index }) => {
+const BookingCard = ({ booking }) => {
     return (
         <div
-            key={booking._id}
             className="group overflow-hidden rounded-3xl border bg-card shadow-sm transition-all hover:shadow-md"
         >
             <div className="flex flex-col md:flex-row">
-                <div className={`flex w-full items-center justify-center p-8 transition-colors md:w-48 ${booking.status === "booked" ? "bg-indigo-600 text-white" : "bg-muted text-muted-foreground"}`}>
+                <div 
+                
+                className={`flex w-full items-center justify-center p-8 transition-colors md:w-48 ${booking.status === "booked" ? "bg-indigo-600 text-white" : "bg-muted text-muted-foreground"}`}>
+   
                     {booking.status === "booked" ? <CheckCircle size={48} /> : <XCircle size={48} />}
+
                 </div>
 
                 <div className="flex grow flex-col justify-between p-8 md:flex-row md:items-center">

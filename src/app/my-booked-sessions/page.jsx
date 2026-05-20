@@ -10,7 +10,6 @@ const MyBookedSessionsPage = async () => {
     const res = await fetch(`http://localhost:8000/bookings/${session.user.id}`);
     const bookings = await res.json();
 
-    console.log(session?.user?.id)
 
     return (
         <>

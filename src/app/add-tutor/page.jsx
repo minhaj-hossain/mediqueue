@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { toast } from 'react-toastify';
-
+import { authClient } from '@/lib/auth-client';
 
 const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const SUBJECTS = ['Mathematics', 'Physics', 'Chemistry', 'Biology', 'English', 'Programming', 'Design', 'Economics', 'History', 'Literature'];
@@ -33,6 +33,9 @@ const AddTutorsPage = () => {
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState('');
 
+    const { data: session } = authClient.useSession();
+        const user = session?.user;
+    
     const handleChange = (e) => {
         const { name, value } = e.target;
         setForm(prev => ({ ...prev, [name]: value }));
@@ -75,25 +78,24 @@ const AddTutorsPage = () => {
             formData.append('availableTimeStart', form.availableTimeStart.trim());
             formData.append('availableTimeEnd', form.availableTimeEnd.trim());
             formData.append('sessionStartDate', form.sessionStartDate.toISOString());
+            formData.append('userId', user?.id);
             // Arrays must be stringified — parse with JSON.parse() on the server
             formData.append('availableDays', JSON.stringify(form.availableDays));
 
-            // const res = await fetch(`http://localhost:8000/tutors`, {
-            //     method: 'POST',
-            //     body: formData,
-            //     // ⚠️ No Content-Type header — browser sets multipart/form-data boundary automatically
-            // });
 
             const res = await fetch(`http://localhost:8000/tutors`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                },
                 body: JSON.stringify({
                     ...form,
-                    availableDays: form.availableDays,
+                    userId: user?.id,
+                    hourlyFee: Number(form.hourlyFee),
+                    totalSlot: Number(form.totalSlot),
                     sessionStartDate: form.sessionStartDate?.toISOString(),
                 }),
             });
-
             
             if (!res.ok) {
                 const errData = await res.json().catch(() => ({}));

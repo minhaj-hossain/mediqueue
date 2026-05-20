@@ -195,6 +195,7 @@ function BookingModal({ tutor, user, onClose, onSuccess }) {
 
             const booking = {
                 tutorId: tutor._id,
+                userId: user?.id || 'guest',
                 tutorName: tutor.tutorName,
                 studentName: user?.name || '',
                 studentEmail: user?.email || '',

@@ -1,6 +1,6 @@
 'use client'
 import { use, useEffect, useState } from 'react';
-import { authClient, useSession } from '@/lib/auth-client'; // adjust to your better-auth client path
+import { authClient, useSession } from '@/lib/auth-client'; 
 import {
     MapPin, Clock, BookOpen, Star, Users, CalendarDays,
     GraduationCap, X, Loader2, CheckCircle2, AlertCircle, Phone
@@ -11,7 +11,6 @@ import { useParams } from 'next/navigation';
 
 const SERVER_URL = 'http://localhost:8000';
 
-// ─── MAIN PAGE ─────────────────────────────────────────────────────────────────
 export default function TutorDetailsPage() {
 
 
@@ -26,24 +25,6 @@ export default function TutorDetailsPage() {
     const [loading, setLoading] = useState(true);
     const [modalOpen, setModalOpen] = useState(false);
 
-    // Fetch tutor by id
-    // fetch(`${SERVER_URL}/tutors/${id}`)
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         let availableDays = [];
-    //         try {
-    //             const parsed = JSON.parse(data.availableDays);
-    //             availableDays = Array.isArray(parsed) ? parsed : [];
-    //         } catch {
-    //             // plain string like "Sun - Thu" → split it into an array
-    //             availableDays = typeof data.availableDays === 'string'
-    //                 ? data.availableDays.split(/[\s,\-]+/).map(d => d.trim()).filter(Boolean)
-    //                 : [];
-    //         }
-    //         setTutor({ ...data, availableDays });
-    //     })
-    //     .catch(console.error)
-    //     .finally(() => setLoading(false));
     useEffect(() => {
 
         const fetchTutor = async () => {
@@ -105,7 +86,7 @@ export default function TutorDetailsPage() {
 
     }, [id]);
 
-    // ── Slot / date restriction checks ───────────────────────────────────────
+  
     const now = new Date();
     const sessionDate = tutor?.sessionStartDate ? new Date(tutor.sessionStartDate) : null;
     const isDateBlocked = sessionDate && now < sessionDate;
@@ -270,7 +251,7 @@ function BookingModal({ tutor, user, onClose, onSuccess }) {
                 studentName: user?.name || '',
                 studentEmail: user?.email || '',
                 phone: phone.trim(),
-                bookStatus: 'pending',
+                bookStatus: 'booked',
                 bookedAt: new Date().toISOString(),
             };
 

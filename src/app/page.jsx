@@ -1,5 +1,6 @@
 import FAQ from "@/components/home/FAQ";
 import FeaturedTutors from "@/components/home/FeaturedTutors";
+import HeroSection from "@/components/home/HeroSection";
 import TrustSection from "@/components/home/TrustSection";
 
 export default async function Home() {
@@ -9,6 +10,7 @@ export default async function Home() {
 
   return (
     <div className="pt-44 container mx-auto ">
+      <HeroSection />
       <FeaturedTutors tutors={tutors} />
       <TrustSection />
       <FAQ />

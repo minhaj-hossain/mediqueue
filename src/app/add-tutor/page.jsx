@@ -73,17 +73,18 @@ const AddTutorsPage = () => {
             const formData = new FormData();
 
             formData.append('tutorName', form.tutorName.trim());
-            formData.append('tutorPhoto', form.tutorPhoto.trim());
+            formData.append('photo', form.tutorPhoto.trim());
             formData.append('subject', form.subject);
-            formData.append('institution', form.institution.trim());
-            formData.append('experience', form.experience.trim());
             formData.append('hourlyFee', form.hourlyFee);
             formData.append('totalSlot', form.totalSlot);
+            formData.append('sessionStartDate', form.sessionStartDate.toISOString());
+            formData.append('institution', form.institution.trim());
+            formData.append('experience', form.experience.trim());
             formData.append('location', form.location.trim());
             formData.append('teachingMode', form.teachingMode);
             formData.append('availableTimeStart', form.availableTimeStart.trim());
             formData.append('availableTimeEnd', form.availableTimeEnd.trim());
-            formData.append('sessionStartDate', form.sessionStartDate.toISOString());
+            formData.append('status', "active")
             formData.append('userId', user?.id);
             // Arrays must be stringified — parse with JSON.parse() on the server
             formData.append('availableDays', JSON.stringify(form.availableDays));
@@ -93,10 +94,11 @@ const AddTutorsPage = () => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    authorization: `Bearer ${tokenData?.token }`,
+                    authorization: `Bearer ${tokenData?.token}`,
                 },
                 body: JSON.stringify({
                     ...form,
+                    status: "active",
                     userId: user?.id,
                     hourlyFee: Number(form.hourlyFee),
                     totalSlot: Number(form.totalSlot),

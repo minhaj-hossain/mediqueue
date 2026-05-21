@@ -1,7 +1,8 @@
-import { Edit2, Trash2 } from 'lucide-react';
-import Image from 'next/image';
+'use client'
+
 import React from 'react';
 import DeleteTutor from './DeleteTutors';
+import { UpdateTutorsModal } from './UpdateTutorsModal';
 
 const TutorsTable = ({ tutors }) => {
     return (
@@ -41,17 +42,14 @@ const TutorsTable = ({ tutors }) => {
                             </td>
                             <td className="px-8 py-6">
                                 <div className="flex items-center justify-center gap-3">
-                                    <button
-                                        className="rounded-xl p-3 text-indigo-600 transition-colors hover:bg-indigo-50"
-                                    // onClick={() => toast.info("Update logic: Use Add Tutor form with pre-filled data in a real app")}
-                                    >
-                                        <Edit2 size={18} />
-                                    </button>
+
+                                    <UpdateTutorsModal tutor={tutor} />
+
                                     <div
                                         // onClick={() => setDeleteId(tutor._id)}
                                         className="rounded-xl p-3 text-destructive transition-colors hover:bg-destructive/10"
                                     >
-                                        <DeleteTutor tutor={tutor}/>
+                                        <DeleteTutor tutor={tutor} />
                                     </div>
                                 </div>
                             </td>

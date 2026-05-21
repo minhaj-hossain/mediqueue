@@ -13,7 +13,7 @@ export default function DeleteTutor({ tutor }) {
 
         const { data: tokenData } = await authClient.token()
 
-        const res = await fetch(`http://localhost:8000/remove-my-tutor/${tutorToBeDeleted._id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/remove-my-tutor/${tutorToBeDeleted._id}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${tokenData?.token}`

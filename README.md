@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MediQueue – Tutor Booking System
 
-## Getting Started
+MediQueue is a tutor booking platform where students can browse tutors, book learning sessions, and manage their scheduled classes easily. The system helps avoid scheduling conflicts and provides a smooth learning experience through digital booking management.
 
-First, run the development server:
+## 🌐 Live Website
+🔗 [Live Site URL Here](https://mediqueue-vert.vercel.app/)
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 🔐 JWT Authentication with Email/Password and Google Login
+- 📚 Browse and search tutors with filtering functionality
+- 🗓️ Book tutor sessions with automatic slot management
+- 🌙 Dark and Light theme support
+- 📱 Fully responsive design for mobile, tablet, and desktop
+- ⚡ Dynamic routing with protected private pages
+- 🔔 Toast notifications for all CRUD operations
+- 🧾 Manage personal tutors and booked sessions
+- 🚫 Booking restrictions based on slot availability and session date
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Technologies Used
 
-## Learn More
+### Client Side
+- Nextjs
+- Tailwind CSS
+- Better auth
+- Framer Motion
+- 
+- React Toastity
 
-To learn more about Next.js, take a look at the following resources:
+### Server Side
+- Node.js
+- Express.js
+- MongoDB
+- JWT
+- CORS
+- dotenv
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔑 Main Functionalities
 
-## Deploy on Vercel
+### Authentication
+- Email & Password Login/Register
+- Google Authentication
+- JWT Token Generation and Verification
+- Protected Routes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Tutor Management
+- Add Tutor
+- Update Tutor
+- Delete Tutor
+- View Tutor Details
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Booking System
+- Book Sessions
+- Auto Slot Decrease
+- Booking Status Management
+- Cancel Booking Feature
+
+---
+
+## 📂 Project Repositories
+
+### Client Repository
+🔗 [Client Repository Link](https://github.com/minhaj-hossain/mediqueue)
+
+### Server Repository
+🔗 [Server Repository Link](https://github.com/minhaj-hossain/mediqueue_server)
+
+---
+
+## 👨‍💻 Developer
+
+**MINHAJ** Your Name Here
+

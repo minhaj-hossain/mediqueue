@@ -10,7 +10,7 @@ export async function proxy(request) {
     })
 
     if (!session) {
-        return NextResponse.redirect(new URL('/home', request.url))
+        return NextResponse.redirect(new URL('/login', request.url))
     }
 }
 
@@ -18,5 +18,5 @@ export async function proxy(request) {
 // export default function proxy(request) { ... }
 
 export const config = {
-    matcher: ['/add-tutor', '/my-tutors'],
+    matcher: ['/tutors/:path','/add-tutor', '/my-tutors'],
 }

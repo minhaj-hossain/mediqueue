@@ -13,7 +13,7 @@ export default function UpdateBookingStatus({ booking }) {
 
         const { data: tokenData } = await authClient.token()
 
-        const res = await fetch(`http://localhost:8000/update-status/${booking._id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/update-status/${booking._id}`, {
             method: "PATCH",
             headers: {
                 authorization: `Bearer ${tokenData?.token}`

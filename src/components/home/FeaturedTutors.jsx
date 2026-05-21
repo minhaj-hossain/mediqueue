@@ -5,7 +5,7 @@ import TutorCard from './TutorCard';
 
 const FeaturedTutors = ({tutors}) => {
     return (
-        <section className="py-40">
+        <section className="py-40 container mx-auto">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col items-start justify-between gap-8 mb-24 md:flex-row md:items-end">
                     <div className="max-w-2xl">

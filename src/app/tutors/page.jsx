@@ -24,7 +24,7 @@ export default function TutorsPage() {
 
         const timeout = setTimeout(() => {
 
-            fetch(`http://localhost:8000/tutors?${params.toString()}`)
+            fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/tutors?${params.toString()}`)
                 .then((res) => res.json())
                 .then((data) => setTutors(data))
                 .catch((err) => console.error(err))
@@ -148,7 +148,7 @@ export default function TutorsPage() {
                 <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                     {isLoading ? (
                         [...Array(6)].map((_, i) => (
-                            <div key={i} className="">loading...</div>
+                            <div key={i} className="h-112.5 w-full animate-pulse rounded-[2.5rem] bg-black/2" />
                         ))
                     ) : tutors.length > 0 ? (
                         tutors.map((tutor) => (

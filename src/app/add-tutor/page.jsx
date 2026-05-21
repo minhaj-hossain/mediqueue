@@ -90,7 +90,7 @@ const AddTutorsPage = () => {
             formData.append('availableDays', JSON.stringify(form.availableDays));
 
 
-            const res = await fetch(`http://localhost:8000/tutors`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/tutors`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

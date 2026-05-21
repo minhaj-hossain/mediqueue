@@ -14,7 +14,7 @@ const MyTutorPage = async () => {
     })
     
     const session = await auth.api.getSession({ headers: await headers() });
-    const res = await fetch(`http://localhost:8000/my-tutors/${session.user.id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/my-tutors/${session.user.id}`, {
         headers: {
             Authorization: `Bearer ${token}`
         }

@@ -5,11 +5,11 @@ import TrustSection from "@/components/home/TrustSection";
 
 export default async function Home() {
 
-  const res = await fetch(`http://localhost:8000/top-tutors`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/top-tutors`);
   const tutors = await res.json();
 
   return (
-    <div className="pt-44 container mx-auto ">
+    <div className="pt-44  ">
       <HeroSection />
       <FeaturedTutors tutors={tutors} />
       <TrustSection />

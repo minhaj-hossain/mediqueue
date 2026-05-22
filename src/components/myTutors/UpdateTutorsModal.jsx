@@ -53,7 +53,7 @@ export function UpdateTutorsModal({ tutor }) {
         <Modal>
 
             <Button
-                className="rounded-xl p-3 text-indigo-600 transition-colors hover:bg-indigo-50"
+                className="rounded-xl p-3 text-teal-600 transition-colors hover:bg-teal-50"
             >
                 <Edit2 size={18} />
             </Button>
@@ -177,7 +177,7 @@ export function UpdateTutorsModal({ tutor }) {
                                     <Modal.Footer className="px-0 pb-0">
                                         <Button
                                             type="submit"
-                                            className="w-full rounded-2xl bg-indigo-600 py-6 text-white hover:bg-indigo-700"
+                                            className="w-full rounded-2xl bg-teal-600 py-6 text-white hover:bg-teal-700"
                                         >
                                             Update Tutor
                                         </Button>

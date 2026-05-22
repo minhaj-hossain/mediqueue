@@ -30,7 +30,7 @@ export default function UpdateBookingStatus({ booking }) {
             <Button variant="">
                 <div
 
-                    className="rounded-xl border border-destructive/20 bg-destructive/5 px-6 py-3 text-sm font-bold text-destructive transition-all  hover:bg-indigo-600 hover:text-white "
+                    className="rounded-xl border border-destructive/20 bg-destructive/5 px-6 py-3 text-sm font-bold text-destructive transition-all  hover:bg-teal-600 hover:text-white "
                 >
                     Cancel Session
                 </div>

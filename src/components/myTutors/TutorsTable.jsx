@@ -30,7 +30,7 @@ const TutorsTable = ({ tutors }) => {
                                 </div>
                             </td>
                             <td className="px-8 py-6">
-                                <span className="rounded-lg bg-indigo-50 px-3 py-1 text-xs font-bold text-indigo-600 dark:bg-indigo-900/20">
+                                <span className="rounded-lg bg-teal-50 px-3 py-1 text-xs font-bold text-teal-600 dark:bg-teal-900/20">
                                     {tutor.subject}
                                 </span>
                             </td>

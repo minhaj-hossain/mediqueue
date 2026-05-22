@@ -12,7 +12,7 @@ export default function NotFound() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-center"
             >
-                <span className="text-9xl font-black text-indigo-100 dark:text-indigo-900/20">404</span>
+                <span className="text-9xl font-black text-teal-100 dark:text-teal-900/20">404</span>
                 <div className="-mt-16 sm:-mt-24">
                     <h1 className="text-4xl font-extrabold text-foreground sm:text-5xl">Page Not Found</h1>
                     <p className="mt-4 text-lg text-muted-foreground">The lesson you&apos;re looking for doesn&apos;t seem to be in our curriculum.</p>
@@ -21,7 +21,7 @@ export default function NotFound() {
                 <div className="mt-12 flex flex-wrap justify-center gap-4">
                     <Link
                         href="/"
-                        className="flex items-center gap-2 rounded-2xl bg-indigo-600 px-8 py-4 font-bold text-white shadow-xl transition-all hover:bg-indigo-700"
+                        className="flex items-center gap-2 rounded-2xl bg-teal-600 px-8 py-4 font-bold text-white shadow-xl transition-all hover:bg-teal-700"
                     >
                         <Home size={20} />
                         Back to Home

@@ -161,12 +161,12 @@ export default function Navbar() {
                                         key={link.href}
                                         href={link.href}
                                         onClick={() => setIsOpen(false)}
-                                        className={cn(
-                                            "block rounded-xl px-4 py-3.5 text-sm font-bold transition-all",
+                                        className={`
+                                            block rounded-xl px-4 py-3.5 text-sm font-bold transition-all${
                                             pathname === link.href
                                                 ? "bg-teal-accent/10 text-teal-accent"
-                                                : "text-black/60 hover:bg-black/5 hover:text-black"
-                                        )}
+                                                : "text-black/60 hover:bg-black/5 hover:text-black"}
+                                        `}
                                     >
                                         {link.name}
                                     </Link>
@@ -176,15 +176,14 @@ export default function Navbar() {
                                     <Link
                                         href="/my-booked-sessions"
                                         onClick={() => setIsOpen(false)}
-                                        className={cn(
-                                            "block rounded-xl px-4 py-3.5 text-sm font-bold transition-all",
-                                            pathname === "/my-booked-sessions"
-                                                ? "bg-teal-accent/10 text-teal-accent"
-                                                : "text-black/60 hover:bg-black/5 hover:text-black"
-                                        )}
-                                    >
+                                        className={`
+                                            block rounded-xl px-4 py-3.5 text-sm font-bold transition-all ${pathname === "/my-booked-sessions" ? "bg-teal-accent/10 text-teal-accent" : "text-black/60 hover:bg-black/5 hover:text-black"}
+                                        `}>
+
                                         My Bookings
                                     </Link>
+
+
                                 )}
 
                                 {!session && (

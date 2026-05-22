@@ -60,7 +60,6 @@ const AddTutorsPage = () => {
         const { data: tokenData } = await authClient.token()
         console.log('Token data:', tokenData);
 
-        // Basic validation
         if (!form.tutorName.trim()) return setError('Tutor name is required.');
         if (!form.subject) return setError('Please select a subject.');
         if (!form.tutorPhoto.trim()) return setError('Please provide a photo URL.');
@@ -86,7 +85,6 @@ const AddTutorsPage = () => {
             formData.append('availableTimeEnd', form.availableTimeEnd.trim());
             formData.append('status', "active")
             formData.append('userId', user?.id);
-            // Arrays must be stringified — parse with JSON.parse() on the server
             formData.append('availableDays', JSON.stringify(form.availableDays));
 
 
@@ -131,11 +129,11 @@ const AddTutorsPage = () => {
                     <div className="mb-10 flex items-center justify-between">
                         <div>
                             <h1 className="text-4xl font-black text-foreground">
-                                Become a <span className="text-indigo-600">Tutor</span>
+                                Become a <span className="text-teal-600">Tutor</span>
                             </h1>
                             <p className="mt-2 text-muted-foreground">Share your knowledge and earn by helping others.</p>
                         </div>
-                        <div className="hidden h-16 w-16 items-center justify-center rounded-2xl bg-indigo-600/10 text-indigo-600 sm:flex">
+                        <div className="hidden h-16 w-16 items-center justify-center rounded-2xl bg-indigo-600/10 text-teal-600 sm:flex">
                             <PlusCircle size={32} />
                         </div>
                     </div>
@@ -173,14 +171,14 @@ const AddTutorsPage = () => {
                                 <div className="space-y-2">
                                     <Label>Tutor Name</Label>
                                     <div className="relative">
-                                        <GraduationCap className="absolute left-4 top-1/2 -translate-y-1/2 text-indigo-500" size={18} />
+                                        <GraduationCap className="absolute left-4 top-1/2 -translate-y-1/2 text-teal-500" size={18} />
                                         <input name="tutorName" value={form.tutorName} onChange={handleChange} placeholder="Your full name" className="field pl-12" />
                                     </div>
                                 </div>
                                 <div className="space-y-2">
                                     <Label>Photo URL</Label>
                                     <div className="relative">
-                                        <ImageIcon className="absolute left-4 top-1/2 -translate-y-1/2 text-indigo-500" size={18} />
+                                        <ImageIcon className="absolute left-4 top-1/2 -translate-y-1/2 text-teal-500" size={18} />
                                         <input name="tutorPhoto" value={form.tutorPhoto} onChange={handleChange} placeholder="https://i.ibb.co/..." className="field pl-12" />
                                     </div>
                                 </div>
@@ -207,7 +205,7 @@ const AddTutorsPage = () => {
                             <div className="grid gap-6 md:grid-cols-3">
                                 <div className="space-y-2">
                                     <Label>Hourly Fee (৳)</Label>
-                                    <input type="number" name="hourlyFee" value={form.hourlyFee} onChange={handleChange} min="0" placeholder="500" className="field font-bold text-indigo-600" />
+                                    <input type="number" name="hourlyFee" value={form.hourlyFee} onChange={handleChange} min="0" placeholder="500" className="field font-bold text-teal-600" />
                                 </div>
                                 <div className="space-y-2">
                                     <Label>Total Slots</Label>
@@ -228,7 +226,7 @@ const AddTutorsPage = () => {
                                         {TEACHING_MODES.map(m => (
                                             <button key={m} type="button"
                                                 onClick={() => setForm(p => ({ ...p, teachingMode: m }))}
-                                                className={`grow rounded-xl border p-3 text-sm font-bold transition-all ${form.teachingMode === m ? 'bg-indigo-600 text-white border-indigo-600 shadow-md' : 'bg-card text-muted-foreground hover:border-indigo-300'}`}
+                                                className={`grow rounded-xl border p-3 text-sm font-bold transition-all ${form.teachingMode === m ? 'bg-teal-600 text-white border-teal-600 shadow-md' : 'bg-card text-muted-foreground hover:border-teal-300'}`}
                                             >{m}</button>
                                         ))}
                                     </div>
@@ -250,7 +248,7 @@ const AddTutorsPage = () => {
                                     <div className="flex flex-wrap gap-2">
                                         {DAYS.map(day => (
                                             <button key={day} type="button" onClick={() => toggleDay(day)}
-                                                className={`min-w-14 rounded-xl border px-3 py-2.5 text-sm font-bold transition-all ${form.availableDays.includes(day) ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-card text-muted-foreground hover:border-indigo-300'}`}
+                                                className={`min-w-14 rounded-xl border px-3 py-2.5 text-sm font-bold transition-all ${form.availableDays.includes(day) ? 'bg-teal-600 text-white border-teal-600' : 'bg-card text-muted-foreground hover:border-teal-300'}`}
                                             >{day}</button>
                                         ))}
                                     </div>
@@ -282,10 +280,10 @@ const AddTutorsPage = () => {
                                 {/* Availability Preview */}
                                 {form.availableDays.length > 0 && (
                                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                                        className="rounded-xl border border-indigo-100 bg-indigo-50 px-4 py-3 text-sm"
+                                        className="rounded-xl border border-teal-100 bg-teal-50 px-4 py-3 text-sm"
                                     >
-                                        <span className="font-bold text-indigo-700">Preview: </span>
-                                        <span className="text-indigo-900">
+                                        <span className="font-bold text-teal-700">Preview: </span>
+                                        <span className="text-teal-900">
                                             {form.availableDays.join(', ')}
                                             {form.availableTimeStart && `  ·  ${form.availableTimeStart}${form.availableTimeEnd ? ` – ${form.availableTimeEnd}` : ''}`}
                                         </span>
@@ -304,7 +302,7 @@ const AddTutorsPage = () => {
 
                             {/* Submit */}
                             <button type="submit" disabled={isSubmitting}
-                                className="flex w-full items-center justify-center gap-3 rounded-2xl bg-indigo-600 py-5 text-xl font-black text-white shadow-xl shadow-indigo-500/25 transition-all hover:bg-indigo-700 disabled:opacity-60 disabled:cursor-not-allowed"
+                                className="flex w-full items-center justify-center gap-3 rounded-2xl bg-teal-600 py-5 text-xl font-black text-white shadow-xl shadow-indigo-500/25 transition-all hover:bg-teal-700 disabled:opacity-60 disabled:cursor-not-allowed"
                             >
                                 {isSubmitting
                                     ? <><Loader2 size={24} className="animate-spin" /> Publishing profile…</>

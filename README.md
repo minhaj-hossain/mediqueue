@@ -74,5 +74,5 @@ MediQueue is a tutor booking platform where students can browse tutors, book lea
 
 ## 👨‍💻 Developer
 
-**MINHAJ** Your Name Here
+**MINHAJ**
 

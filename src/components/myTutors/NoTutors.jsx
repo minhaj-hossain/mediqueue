@@ -10,7 +10,7 @@ const NoTutors = () => {
             </div>
             <h3 className="text-2xl font-bold text-foreground">You haven&apos;t listed any tutors yet</h3>
             <p className="mt-4 max-w-sm text-muted-foreground">Start sharing your expertise with the world today. Your listings will appear here.</p>
-            <Link href="/add-tutor" className="mt-8 rounded-xl bg-indigo-600 px-8 py-4 font-bold text-white shadow-lg transition-all hover:bg-indigo-700">
+            <Link href="/add-tutor" className="mt-8 rounded-xl bg-teal-600 px-8 py-4 font-bold text-white shadow-lg transition-all hover:bg-teal-700">
                 Create Your First Listing
             </Link>
         </div>

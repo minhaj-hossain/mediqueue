@@ -8,6 +8,7 @@ export default async function Home() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/top-tutors`);
   const tutors = await res.json();
 
+
   return (
     <div className="pt-44  ">
       <HeroSection />

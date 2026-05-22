@@ -27,12 +27,12 @@ const MyTutorPage = async () => {
 
                 <div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
                     <div>
-                        <h1 className="text-4xl font-black text-foreground">My <span className="text-indigo-600">Tutor Listings</span></h1>
+                        <h1 className="text-4xl font-black text-foreground">My <span className="text-teal-600">Tutor Listings</span></h1>
                         <p className="mt-2 text-muted-foreground">Manage and monitor the classes you&apos;ve listed.</p>
                     </div>
                     <Link
                         href="/add-tutor"
-                        className="flex items-center gap-2 rounded-2xl bg-indigo-600 px-6 py-4 font-bold text-white shadow-xl shadow-indigo-600/20 transition-all hover:bg-indigo-700 hover:shadow-indigo-600/40"
+                        className="flex items-center gap-2 rounded-2xl bg-teal-600 px-6 py-4 font-bold text-white shadow-xl shadow-teal-600/20 transition-all hover:bg-teal-700 hover:shadow-teal-600/40"
                     >
                         <Plus size={20} />
                         Add New Listing

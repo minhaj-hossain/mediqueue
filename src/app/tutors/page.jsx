@@ -52,7 +52,7 @@ export default function TutorsPage() {
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        className="text-[10px] font-black uppercase tracking-[0.2em] text-indigo-600 mb-4"
+                        className="text-[10px] font-black uppercase tracking-[0.2em] text-teal-600 mb-4"
                     >
                         The Expert Directory
                     </motion.div>
@@ -61,7 +61,7 @@ export default function TutorsPage() {
                         animate={{ opacity: 1, y: 0 }}
                         className="text-6xl font-black tracking-tight text-black leading-none"
                     >
-                        Find your <span className="text-indigo-600">mentor.</span>
+                        Find your <span className="text-teal-600">mentor.</span>
                     </motion.h1>
                     <p className="mt-8 text-xl text-black/40 font-medium max-w-2xl leading-relaxed">
                         Every session is a deliberate step toward mastery. Browse our curated directory of elite educators.
@@ -79,7 +79,7 @@ export default function TutorsPage() {
                             placeholder="Search by tutor name..."
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
-                            className="w-full rounded-[2rem] border border-black/5 bg-white py-5 pl-14 pr-8 text-base font-medium shadow-sm transition-all focus:border-indigo-600 focus:outline-none"
+                            className="w-full rounded-[2rem] border border-black/5 bg-white py-5 pl-14 pr-8 text-base font-medium shadow-sm transition-all focus:border-teal-600 focus:outline-none"
                         />
                         {search && (
                             <button
@@ -99,7 +99,7 @@ export default function TutorsPage() {
                                 type="date"
                                 value={startDate}
                                 onChange={(e) => setStartDate(e.target.value)}
-                                className="rounded-2xl border border-black/5 bg-white py-5 px-6 text-sm font-bold text-black/40 shadow-sm focus:border-indigo-600 focus:outline-none"
+                                className="rounded-2xl border border-black/5 bg-white py-5 px-6 text-sm font-bold text-black/40 shadow-sm focus:border-teal-600 focus:outline-none"
                             />
                             {startDate && (
                                 <button onClick={() => setStartDate("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-black/20 hover:text-black">
@@ -116,7 +116,7 @@ export default function TutorsPage() {
                                 type="date"
                                 value={endDate}
                                 onChange={(e) => setEndDate(e.target.value)}
-                                className="rounded-2xl border border-black/5 bg-white py-5 px-6 text-sm font-bold text-black/40 shadow-sm focus:border-indigo-600 focus:outline-none"
+                                className="rounded-2xl border border-black/5 bg-white py-5 px-6 text-sm font-bold text-black/40 shadow-sm focus:border-teal-600 focus:outline-none"
                             />
                             {endDate && (
                                 <button onClick={() => setEndDate("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-black/20 hover:text-black">
@@ -144,7 +144,6 @@ export default function TutorsPage() {
                     </p>
                 )}
 
-                {/* Grid */}
                 <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                     {isLoading ? (
                         [...Array(6)].map((_, i) => (
@@ -164,7 +163,7 @@ export default function TutorsPage() {
                             {(search || startDate || endDate) && (
                                 <button
                                     onClick={handleClearFilters}
-                                    className="mt-8 text-[10px] font-black uppercase tracking-widest text-indigo-600 hover:underline decoration-2 underline-offset-4"
+                                    className="mt-8 text-[10px] font-black uppercase tracking-widest text-teal-600 hover:underline decoration-2 underline-offset-4"
                                 >
                                     Clear Filters
                                 </button>

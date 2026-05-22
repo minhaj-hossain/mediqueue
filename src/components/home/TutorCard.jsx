@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { User, Clock, DollarSign, BookOpen, MapPin, Calendar } from "lucide-react";
+import { Clock, BookOpen } from "lucide-react";
 import Link from "next/link";
 
 import Image from "next/image";
@@ -9,6 +9,7 @@ import Image from "next/image";
 
 
 export default function TutorCard({ tutor }) {
+
     const {
         _id,
         tutorName,

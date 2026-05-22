@@ -76,12 +76,12 @@ export default function LoginPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 className="w-full max-w-md overflow-hidden rounded-3xl border bg-card shadow-2xl"
             >
-                <div className="bg-linear-to-br from-indigo-600 to-violet-700 p-8 text-center text-white">
+                <div className="bg-linear-to-br from-teal-600 to-teal-700 p-8 text-center text-white">
                     <Link href="/" className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-md">
                         <BookOpen size={32} />
                     </Link>
                     <h1 className="text-3xl font-black">Welcome Back</h1>
-                    <p className="mt-2 text-indigo-100">Log in to MediQueue to continue learning</p>
+                    <p className="mt-2 text-teal-100">Log in to MediQueue to continue learning</p>
                 </div>
 
                 <div className="p-8">
@@ -97,7 +97,7 @@ export default function LoginPage() {
                                     onChange={(e) =>
                                         setFormData({ ...formData, email: e.target.value })
                                     }
-                                    className="w-full rounded-xl border bg-card py-4 pl-12 pr-4 shadow-sm outline-none focus:border-indigo-600 focus:ring-4 focus:ring-indigo-600/10"
+                                    className="w-full rounded-xl border bg-card py-4 pl-12 pr-4 shadow-sm outline-none focus:border-teal-600 focus:ring-4 focus:ring-teal-600/10"
                                     placeholder="name@example.com"
                                 />
                             </div>
@@ -123,7 +123,7 @@ export default function LoginPage() {
                                             password: validatePassword(value),
                                         }));
                                     }}
-                                    className={`w-full rounded-xl border bg-card py-4 pl-12 pr-4 shadow-sm outline-none focus:border-indigo-600 focus:ring-4 focus:ring-indigo-600/10 ${errors.password ? "border-red-500" : ""}`}
+                                    className={`w-full rounded-xl border bg-card py-4 pl-12 pr-4 shadow-sm outline-none focus:border-teal-600 focus:ring-4 focus:ring-teal-600/10 ${errors.password ? "border-red-500" : ""}`}
                                     placeholder="••••••••"
                                 />
                             </div>
@@ -136,7 +136,7 @@ export default function LoginPage() {
                         <button
                             type="submit"
                             disabled={isLoading}
-                            className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-4 font-bold text-white shadow-lg transition-all hover:bg-indigo-700 disabled:opacity-50"
+                            className="flex w-full items-center justify-center gap-2 rounded-xl bg-teal-600 py-4 font-bold text-white shadow-lg transition-all hover:bg-teal-700 disabled:opacity-50"
                         >
                             {isLoading ? "Signing in..." : "Sign In"}
                             <LogIn size={20} />
@@ -169,7 +169,7 @@ export default function LoginPage() {
 
                     <p className="mt-8 text-center text-sm text-muted-foreground">
                         Don&apos;t have an account?{" "}
-                        <Link href="/register" className="font-bold text-indigo-600 hover:underline">
+                        <Link href="/register" className="font-bold text-teal-600 hover:underline">
                             Create one for free
                         </Link>
                     </p>

@@ -4,6 +4,11 @@ import { Clock, Link } from 'lucide-react';
 import { headers } from 'next/headers';
 import React from 'react';
 
+export const metadata = {
+    title: "View the session you booked",
+    description: "Awesome session created by you",
+};
+
 const MyBookedSessionsPage = async () => {
 
     const { token } = await auth.api.getToken({

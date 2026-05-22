@@ -46,7 +46,6 @@ const TutorsTable = ({ tutors }) => {
                                     <UpdateTutorsModal tutor={tutor} />
 
                                     <div
-                                        // onClick={() => setDeleteId(tutor._id)}
                                         className="rounded-xl p-3 text-destructive transition-colors hover:bg-destructive/10"
                                     >
                                         <DeleteTutor tutor={tutor} />

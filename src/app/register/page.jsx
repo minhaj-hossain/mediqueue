@@ -55,7 +55,6 @@ export default function RegisterPage() {
                 router.push('/login')
             },
             onError: (ctx) => {
-                // display the error message
                 toast.error(ctx.error.message);
             },
         });
@@ -192,8 +191,6 @@ export default function RegisterPage() {
                         </svg>
                         Google Login
                     </button>
-
-
 
                     <p className="mt-8 text-center text-sm text-muted-foreground">
                         Already have an account?{" "}

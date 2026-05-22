@@ -20,7 +20,7 @@ export default function UpdateBookingStatus({ booking }) {
             }
         })
         const result = await res.json();
-
+        toast.success('Status updated Successfully.')
         window.location.reload()
 
     }

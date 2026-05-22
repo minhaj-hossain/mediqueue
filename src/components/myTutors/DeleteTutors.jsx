@@ -3,11 +3,9 @@
 import { authClient } from "@/lib/auth-client";
 import { AlertDialog, Button } from "@heroui/react";
 import { Trash2 } from "lucide-react";
+import { toast } from "react-toastify";
 
 export default function DeleteTutor({ tutor }) {
-
-
-
 
     const handleDelete = async (tutorToBeDeleted) => {
 
@@ -20,10 +18,9 @@ export default function DeleteTutor({ tutor }) {
             }
         })
         const result = await res.json();
-        console.log(result)
 
+        toast.success('Tutor Successfully deleted.')
         window.location.reload()
-
 
     }
 

@@ -46,13 +46,15 @@ export default function LoginPage() {
         const { data, error } = await authClient.signIn.email({
             email,
             password,
-            callbackURL: "/",
             /**
              * remember the user session after the browser is closed. 
              * @default true
              */
             rememberMe: false
         }, {
+            onSuccess: () => {
+                router.push('/')
+            },
             onError: (ctx) => {
                 // display the error message
                 toast.error(ctx.error.message);
@@ -60,7 +62,7 @@ export default function LoginPage() {
         })
 
 
-        
+
     };
 
     const handleGoogleLogin = async () => {

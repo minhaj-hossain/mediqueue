@@ -6,8 +6,12 @@ import { headers } from 'next/headers';
 import Link from 'next/link';
 import React from 'react';
 
-const MyTutorPage = async () => {
+export const metadata = {
+    title: "My Tutors - The Tutors I have Created",
+    description: "Teachers are the backbone of the nation. And Tutors are also teacher.",
+};
 
+const MyTutorPage = async () => {
 
     const { token } = await auth.api.getToken({
         headers: await headers()

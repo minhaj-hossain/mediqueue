@@ -13,6 +13,7 @@ import {
     Select,
 } from "@heroui/react";
 import { Edit2 } from "lucide-react";
+import { toast } from "react-toastify";
 
 
 export function UpdateTutorsModal({ tutor }) {
@@ -43,7 +44,7 @@ export function UpdateTutorsModal({ tutor }) {
             body: JSON.stringify(updatedTutor)
         })
         const result = await res.json();
-
+        toast.success('Tutor Updated Successfully.')
         window.location.reload();
 
 

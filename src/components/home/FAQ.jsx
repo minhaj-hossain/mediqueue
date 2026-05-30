@@ -27,23 +27,23 @@ export default function FAQ() {
     const [activeIndex, setActiveIndex] = useState(null);
 
     return (
-        <section className="bg-white py-40">
+        <section className="bg-background py-40">
             <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
                 <div className="mb-20 text-center">
                     <div className="text-[10px] font-black uppercase tracking-[0.2em] text-teal-accent mb-4">Support Hub</div>
-                    <h2 className="text-5xl font-display font-black text-black">Common questions.</h2>
+                    <h2 className="text-5xl font-display font-black text-foreground">Common questions.</h2>
                 </div>
 
                 <div className="space-y-6">
                     {faqs.map((faq, index) => (
-                        <div key={index} className="overflow-hidden rounded-[2rem] border border-black/5 bg-white transition-all hover:premium-shadow">
+                        <div key={index} className="overflow-hidden rounded-[2rem] border border-foreground/5 bg-background transition-all hover:premium-shadow">
                             <button
                                 onClick={() => setActiveIndex(activeIndex === index ? null : index)}
                                 className="flex w-full items-center justify-between p-8 text-left transition-colors"
                             >
-                                <span className="text-lg font-display font-black text-black">{faq.question}</span>
+                                <span className="text-lg font-display font-black text-foreground">{faq.question}</span>
                                 <ChevronDown
-                                    className={`text-black/20 transition-transform duration-500 ${activeIndex === index ? "rotate-180 text-teal-accent" : ""}`}
+                                    className={`text-foreground/20 transition-transform duration-500 ${activeIndex === index ? "rotate-180 text-teal-accent" : ""}`}
                                     size={20}
                                 />
                             </button>
@@ -54,9 +54,9 @@ export default function FAQ() {
                                         animate={{ height: "auto", opacity: 1 }}
                                         exit={{ height: 0, opacity: 0 }}
                                         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                                        className="border-t border-black/5"
+                                        className="border-t border-foreground/5"
                                     >
-                                        <div className="p-8 text-lg font-medium leading-relaxed text-black/40">
+                                        <div className="p-8 text-lg font-medium leading-relaxed text-foreground/40">
                                             {faq.answer}
                                         </div>
                                     </motion.div>

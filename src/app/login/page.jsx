@@ -78,8 +78,8 @@ export default function LoginPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 className="w-full max-w-md overflow-hidden rounded-3xl border bg-card shadow-2xl"
             >
-                <div className="bg-linear-to-br from-teal-600 to-teal-700 p-8 text-center text-white">
-                    <Link href="/" className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-md">
+                <div className="bg-linear-to-br from-teal-600 to-teal-700 p-8 text-center text-background">
+                    <Link href="/" className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-background/20 backdrop-blur-md">
                         <BookOpen size={32} />
                     </Link>
                     <h1 className="text-3xl font-black">Welcome Back</h1>
@@ -138,7 +138,7 @@ export default function LoginPage() {
                         <button
                             type="submit"
                             disabled={isLoading}
-                            className="flex w-full items-center justify-center gap-2 rounded-xl bg-teal-600 py-4 font-bold text-white shadow-lg transition-all hover:bg-teal-700 disabled:opacity-50"
+                            className="flex w-full items-center justify-center gap-2 rounded-xl bg-teal-600 py-4 font-bold text-background shadow-lg transition-all hover:bg-teal-700 disabled:opacity-50"
                         >
                             {isLoading ? "Signing in..." : "Sign In"}
                             <LogIn size={20} />

@@ -14,11 +14,11 @@ const TutorHeader = () => {
             <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-6xl font-black tracking-tight text-black leading-none"
+                className="text-6xl font-black tracking-tight text-foreground leading-none"
             >
                 Find your <span className="text-teal-600">mentor.</span>
             </motion.h1>
-            <p className="mt-8 text-xl text-black/40 font-medium max-w-2xl leading-relaxed">
+            <p className="mt-8 text-xl text-foreground/40 font-medium max-w-2xl leading-relaxed">
                 Every session is a deliberate step toward mastery. Browse our curated directory of elite educators.
             </p>
         </div>

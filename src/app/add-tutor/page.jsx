@@ -58,7 +58,7 @@ const AddTutorsPage = () => {
         if (availableDays.length === 0) return setError('Select at least one available day.');
         if (!sessionStartDate) return setError('Please pick a session start date.');
 
-     
+
 
         const { data: tokenData } = await authClient.token();
 
@@ -73,7 +73,7 @@ const AddTutorsPage = () => {
                 },
                 body: JSON.stringify({
                     ...data,
-                    availableTime,   
+                    availableTime,
                     teachingMode,
                     availableDays: JSON.stringify(availableDays),
                     sessionStartDate: sessionStartDate.toISOString(),
@@ -217,8 +217,8 @@ const AddTutorsPage = () => {
                                             type="button"
                                             onPress={() => setTeachingMode(m)}
                                             className={`grow rounded-xl border p-3 text-sm font-bold transition-all ${teachingMode === m
-                                                    ? 'bg-teal-600 text-white border-teal-600 shadow-md'
-                                                    : 'bg-card text-muted-foreground hover:border-teal-300'
+                                                ? 'bg-teal-600 text-background border-teal-600 shadow-md'
+                                                : 'bg-card text-muted-foreground hover:border-teal-300'
                                                 }`}
                                         >{m}</Button>
                                     ))}
@@ -246,8 +246,8 @@ const AddTutorsPage = () => {
                                             type="button"
                                             onPress={() => toggleDay(day)}
                                             className={`min-w-14 rounded-xl border px-3 py-2.5 text-sm font-bold transition-all ${availableDays.includes(day)
-                                                    ? 'bg-teal-600 text-white border-teal-600'
-                                                    : 'bg-card text-muted-foreground hover:border-teal-300'
+                                                ? 'bg-teal-600 text-background border-teal-600'
+                                                : 'bg-card text-muted-foreground hover:border-teal-300'
                                                 }`}
                                         >{day}</Button>
                                     ))}
@@ -312,7 +312,7 @@ const AddTutorsPage = () => {
                         <Button
                             type="submit"
                             isDisabled={isSubmitting}
-                            className="flex w-full items-center justify-center gap-3 rounded-2xl bg-teal-600 py-5 text-xl font-black text-white shadow-xl transition-all hover:bg-teal-700 disabled:opacity-60 disabled:cursor-not-allowed"
+                            className="flex w-full items-center justify-center gap-3 rounded-2xl bg-teal-600 py-5 text-xl font-black text-background shadow-xl transition-all hover:bg-teal-700 disabled:opacity-60 disabled:cursor-not-allowed"
                         >
                             {isSubmitting
                                 ? <><Loader2 size={24} className="animate-spin" /> Publishing profile…</>

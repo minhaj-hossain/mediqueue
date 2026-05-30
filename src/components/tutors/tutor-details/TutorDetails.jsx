@@ -105,7 +105,7 @@ export default function TutorDetails({ id }) {
                     whileTap={{ scale: 0.97 }}
                     disabled={isBookingBlocked}
                     onClick={() => setModalOpen(true)}
-                    className="flex w-full items-center justify-center gap-3 rounded-2xl bg-teal-600 py-5 text-xl font-black text-white shadow-xl shadow-teal-500/25 transition-all hover:bg-teal-700 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="flex w-full items-center justify-center gap-3 rounded-2xl bg-teal-600 py-5 text-xl font-foreground text-background shadow-xl shadow-teal-500/25 transition-all hover:bg-teal-700 disabled:cursor-not-allowed disabled:opacity-50"
                 >
                     <Users size={24} />
                     {isFullyBooked ? 'No Slots Available' : isDateBlocked ? 'Booking Not Open Yet' : 'Book a Session'}

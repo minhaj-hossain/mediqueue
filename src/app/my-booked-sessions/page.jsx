@@ -48,7 +48,7 @@ const MyBookedSessionsPage = async () => {
                             </div>
                             <h3 className="text-2xl font-bold text-foreground">You haven&apos;t booked any sessions yet</h3>
                             <p className="mt-4 max-w-sm text-muted-foreground">Explore our world-class tutors and book your first lesson to start your learning journey.</p>
-                            <Link href="/tutors" className="mt-8 rounded-xl bg-teal-600 px-8 py-4 font-bold text-white shadow-xl transition-all hover:bg-teal-700">
+                            <Link href="/tutors" className="mt-8 rounded-xl bg-teal-600 px-8 py-4 font-bold text-background shadow-xl transition-all hover:bg-teal-700">
                                 Find a Tutor
                             </Link>
                         </div>

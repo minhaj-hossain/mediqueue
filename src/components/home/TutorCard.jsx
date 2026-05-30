@@ -25,7 +25,7 @@ export default function TutorCard({ tutor }) {
     return (
         <motion.div
             whileHover={{ y: -10 }}
-            className="group relative flex flex-col overflow-hidden rounded-[2.5rem] border border-black/5 bg-white p-5 transition-all hover:premium-shadow"
+            className="group relative flex flex-col overflow-hidden rounded-[2.5rem] border border-foreground/5 bg-background p-5 transition-all hover:premium-shadow"
         >
             <div className="relative aspect-4/3 w-full overflow-hidden rounded-[2rem]">
                 <Image
@@ -36,7 +36,7 @@ export default function TutorCard({ tutor }) {
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                     referrerPolicy="no-referrer"
                 />
-                <div className="absolute top-4 right-4 rounded-full bg-white/90 px-4 py-1.5 text-[10px] font-black uppercase tracking-widest text-black backdrop-blur-md">
+                <div className="absolute top-4 right-4 rounded-full bg-background/90 px-4 py-1.5 text-[10px] font-black uppercase tracking-widest text-foreground backdrop-blur-md">
                     {teachingMode}
                 </div>
             </div>
@@ -44,7 +44,7 @@ export default function TutorCard({ tutor }) {
             <div className="mt-8 flex grow flex-col">
                 <div className="flex items-start justify-between mb-4">
                     <div>
-                        <h3 className="text-xl font-display font-black text-black leading-tight">
+                        <h3 className="text-xl font-display font-black text-foreground leading-tight">
                             {tutorName}
                         </h3>
                         <div className="flex items-center gap-2 mt-1">
@@ -53,25 +53,25 @@ export default function TutorCard({ tutor }) {
                         </div>
                     </div>
                     <div className="text-right">
-                        <span className="text-xl font-display font-black text-black">${hourlyFee}</span>
-                        <p className="text-[10px] font-bold text-black/20 uppercase tracking-widest">/ hr</p>
+                        <span className="text-xl font-display font-black text-foreground">${hourlyFee}</span>
+                        <p className="text-[10px] font-bold text-foreground/20 uppercase tracking-widest">/ hr</p>
                     </div>
                 </div>
 
                 <div className="space-y-3 mt-2">
-                    <div className="flex items-center gap-3 text-xs font-bold text-black/40">
-                        <BookOpen size={16} className="text-black/10" />
+                    <div className="flex items-center gap-3 text-xs font-bold text-foreground/40">
+                        <BookOpen size={16} className="text-foreground/10" />
                         <span className="truncate">{institution}</span>
                     </div>
-                    <div className="flex items-center gap-3 text-xs font-bold text-black/40">
-                        <Clock size={16} className="text-black/10" />
+                    <div className="flex items-center gap-3 text-xs font-bold text-foreground/40">
+                        <Clock size={16} className="text-foreground/10" />
                         <span>{experience} Exp</span>
                     </div>
                 </div>
 
                 <div className="mt-8 flex items-center justify-between">
                     <div className="flex flex-col">
-                        <span className="text-[10px] font-black uppercase tracking-widest text-black/20 mb-1">Availability</span>
+                        <span className="text-[10px] font-black uppercase tracking-widest text-foreground/20 mb-1">Availability</span>
                         <span className={`
                             text-xs font-black uppercase tracking-widest ${totalSlot > 0 ? "text-teal-accent" : "text-red-500"}
                         `}>
@@ -80,7 +80,7 @@ export default function TutorCard({ tutor }) {
                     </div>
                     <Link
                         href={`/tutors/${_id}`}
-                        className="rounded-2xl bg-black px-6 py-3.5 text-xs font-black text-white transition-all hover:bg-teal-accent hover:scale-105 active:scale-95"
+                        className="rounded-2xl bg-foreground px-6 py-3.5 text-xs font-black text-background transition-all hover:bg-teal-accent hover:scale-105 active:scale-95"
                     >
                         Details
                     </Link>

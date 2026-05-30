@@ -36,7 +36,7 @@ const MyTutorPage = async () => {
                     </div>
                     <Link
                         href="/add-tutor"
-                        className="flex items-center gap-2 rounded-2xl bg-teal-600 px-6 py-4 font-bold text-white shadow-xl shadow-teal-600/20 transition-all hover:bg-teal-700 hover:shadow-teal-600/40"
+                        className="flex items-center gap-2 rounded-2xl bg-teal-600 px-6 py-4 font-bold text-background shadow-xl shadow-teal-600/20 transition-all hover:bg-teal-700 hover:shadow-teal-600/40"
                     >
                         <Plus size={20} />
                         Add New Listing

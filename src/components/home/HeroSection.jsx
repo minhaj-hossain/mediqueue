@@ -57,7 +57,7 @@ export default function HeroSection() {
             </div>
 
            
-            <div className="pointer-events-none absolute inset-0 z-10 bg-black/60" />
+            <div className="pointer-events-none absolute inset-0 z-10 bg-foreground/60" />
             <div className="pointer-events-none absolute top-0 right-0 z-10 h-125 w-125 rounded-full bg-teal-400/20 blur-[120px]" />
             <div className="pointer-events-none absolute bottom-0 left-0 z-10 h-100 w-100 rounded-full bg-cyan-400/10 blur-[100px]" />
 
@@ -69,10 +69,10 @@ export default function HeroSection() {
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
-                        className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 backdrop-blur-md"
+                        className="mb-8 inline-flex items-center gap-2 rounded-full border border-background/10 bg-background/10 px-4 py-2 backdrop-blur-md"
                     >
                         <Sparkles size={14} className="text-teal-300" />
-                        <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/80">
+                        <span className="text-xs font-bold uppercase tracking-[0.2em] text-background/80">
                             Premium Learning Platform
                         </span>
                     </motion.div>
@@ -80,7 +80,7 @@ export default function HeroSection() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-5xl font-black leading-[0.95] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl"
+                        className="text-5xl font-black leading-[0.95] tracking-tight text-background sm:text-6xl md:text-7xl lg:text-8xl"
                     >
                         Connect with{" "}
                         <span className="text-teal-300">elite tutors</span>
@@ -92,7 +92,7 @@ export default function HeroSection() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-white/70 md:text-xl"
+                        className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-background/70 md:text-xl"
                     >
                         Personalized learning experiences designed to help students
                         achieve academic success with world-class mentors.
@@ -106,7 +106,7 @@ export default function HeroSection() {
                     >
                         <Link
                             href="/tutors"
-                            className="group flex items-center gap-2 rounded-2xl bg-teal-500 px-8 py-4 text-lg font-bold text-white shadow-2xl shadow-teal-500/30 transition-all duration-300 hover:scale-105 hover:bg-teal-400"
+                            className="group flex items-center gap-2 rounded-2xl bg-teal-500 px-8 py-4 text-lg font-bold text-background shadow-2xl shadow-teal-500/30 transition-all duration-300 hover:scale-105 hover:bg-teal-400"
                         >
                             Find Your Tutor
                             <ArrowRight
@@ -117,7 +117,7 @@ export default function HeroSection() {
 
                         <Link
                             href="/register"
-                            className="rounded-2xl border border-white/15 bg-white/10 px-8 py-4 text-lg font-bold text-white backdrop-blur-md transition-all duration-300 hover:bg-white/20"
+                            className="rounded-2xl border border-background/15 bg-background/10 px-8 py-4 text-lg font-bold text-background backdrop-blur-md transition-all duration-300 hover:bg-background/20"
                         >
                             Become a Tutor
                         </Link>
@@ -127,7 +127,7 @@ export default function HeroSection() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.5 }}
-                        className="mt-20 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-sm font-black tracking-widest text-white/30"
+                        className="mt-20 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-sm font-black tracking-widest text-background/30"
                     >
                         <span>TRUSTED BY 10,000+ STUDENTS</span>
                     </motion.div>
@@ -149,7 +149,7 @@ export default function HeroSection() {
         .swiper-pagination-bullet-active {
           width: 30px;
           border-radius: 999px;
-          background: white;
+          background: background;
         }
       `}</style>
         </section>
